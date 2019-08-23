@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a18e2792-c7fc-4e32-a913-e9e79f83e689" name="Default" comment="" />
+    <list default="true" id="a18e2792-c7fc-4e32-a913-e9e79f83e689" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/JavaScript/正式课第七周/day4/1.复习.html" beforeDir="false" />
+    </list>
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -35,15 +37,34 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+<<<<<<< HEAD
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/4.远程仓库.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="47">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="22" />
+=======
+>>>>>>> else_one
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day4/6.git的分支.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+=======
         <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/4.远程仓库.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="47">
               <caret line="11" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="22" />
+>>>>>>> else_one
             </state>
           </provider>
         </entry>
@@ -186,19 +207,19 @@
     <property name="settings.editor.splitter.proportion" value="0.230893" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day4" />
-      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day3" />
-      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day2" />
-      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day1" />
-      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day4" />
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day3" />
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day1" />
       <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网\js" />
       <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day4" />
+      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day3" />
+      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day2" />
+      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day1" />
+      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -299,7 +320,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="1150669000" />
+=======
     <option name="totallyTimeSpent" value="1151927000" />
+>>>>>>> else_one
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -345,6 +370,17 @@
     </option>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day1/3.URI、UTL、URN.html" />
+    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第六周/day5/4.http传输协议.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> else_one
     <entry file="file://$PROJECT_DIR$/JavaScript/案例/照片墙/event.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-450" />
@@ -656,6 +692,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/2.认识git.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="317">
+          <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day4/1.复习.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+=======
         <state relative-caret-position="210">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
@@ -679,6 +726,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+>>>>>>> else_one
         </state>
       </provider>
     </entry>
