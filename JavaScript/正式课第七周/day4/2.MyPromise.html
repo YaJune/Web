@@ -87,12 +87,18 @@
     })
     p.then(function (val) {
 
-        return new MyPromise(function (resolve,reject) {
+        /*return new MyPromise(function (resolve,reject) {
             setTimeout(function () {
                 resolve(2);
             },2000)
-        })
-    }).then()
+        })*/
+    },function () {
+        
+    }).then(
+        function () {
+            
+        }
+    )
     /*let p = new MyPromise(function (resolve,reject) {
         // resolve形参可以执行；所以该实参一定是个函数
         // resolve : 改变当前实例的状态
@@ -113,9 +119,6 @@
     // 第一个then : 把then中的方法放入到p的成功事件池中；并且返回一个p1的promise实例；
 
     // 第二个then ：p1.调用的then；把then中放到了p1.的成功事件池中；
-
-
-
 
 
    /* let p1 = new Promise(function (resolve) {
@@ -143,7 +146,6 @@
     }
     let a = new A(100);
     a.then()*/
-
 
 </script>
 </body>

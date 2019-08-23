@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a18e2792-c7fc-4e32-a913-e9e79f83e689" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a18e2792-c7fc-4e32-a913-e9e79f83e689" name="Default" comment="" />
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,15 +22,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day4/4.git基础.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/2.认识git.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -50,20 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/4.远程仓库.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="47">
               <caret line="11" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day4/5.git远程仓库.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -199,7 +179,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/JavaScript/正式课第七周/day3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/JavaScript/正式课第七周/day4" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
@@ -214,11 +194,11 @@
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day4" />
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day3" />
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day1" />
       <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网\js" />
       <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网" />
-      <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -319,7 +299,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1151923000" />
+    <option name="totallyTimeSpent" value="1151927000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,13 +608,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/Tencent Files/1075459519/FileRecv/6.封装MyPromise.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Documents/Tencent Files/1075459519/FileRecv/6.封装MyPromise.html" />
     <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day3/4.JS的事件循环机制.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
