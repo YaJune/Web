@@ -37,6 +37,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+<<<<<<< HEAD
             </state>
           </provider>
         </entry>
@@ -46,15 +47,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="47">
               <caret line="11" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="22" />
+=======
+>>>>>>> else_one
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day4/6.git的分支.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
               <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+=======
+        <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/4.远程仓库.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="47">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="22" />
+>>>>>>> else_one
             </state>
           </provider>
         </entry>
@@ -198,11 +208,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day4" />
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day3" />
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day1" />
       <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网\js" />
       <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网" />
-      <recent name="D:\HTML\workspace\study\JavaScript\案例\拉勾网\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\HTML\workspace\study\JavaScript\正式课第七周\day4" />
@@ -305,12 +315,16 @@
       <workItem from="1566177721650" duration="27801000" />
       <workItem from="1566263930274" duration="28398000" />
       <workItem from="1566350427130" duration="29544000" />
-      <workItem from="1566523018263" duration="20473000" />
+      <workItem from="1566523018263" duration="23127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="1150669000" />
+=======
+    <option name="totallyTimeSpent" value="1151927000" />
+>>>>>>> else_one
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,6 +370,7 @@
     </option>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day1/3.URI、UTL、URN.html" />
     <entry file="file://$PROJECT_DIR$/JavaScript/正式课第六周/day5/4.http传输协议.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -364,6 +379,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> else_one
     <entry file="file://$PROJECT_DIR$/JavaScript/案例/照片墙/event.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-450" />
@@ -673,8 +690,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day4/5.git远程仓库.html">
+    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/2.认识git.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="317">
           <caret line="14" column="61" lean-forward="true" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
         </state>
@@ -684,6 +702,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+=======
+        <state relative-caret-position="210">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/3.git的基础命令.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第一周/day1/4.远程仓库.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaScript/正式课第七周/day4/5.git远程仓库.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+>>>>>>> else_one
         </state>
       </provider>
     </entry>
