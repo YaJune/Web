@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            background: whitesmoke;
+        }
+        #tab{
+            width: 400px;
+            height: 280px;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            width: 76px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid black;
+            margin-right: 2px;
+            cursor: pointer;
+            background: white;
+            border-radius: 4px;
+        }
+        ul li.select{
+            background: cornflowerblue;
+            color: white;
+        }
+        #tab div{
+            display: none;
+            width: 400px;
+            height: 280px;
+            /*border-top: 1px solid black;*/
+            margin-top: 5px;
+            text-align: center;
+            line-height: 280px;
+            border-radius: 4px 4px 10px 10px;
+        }
+        #tab div.select{
+            display: block;
+            color: black;
+            background: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <ul>
+            <li class="select">音乐</li>
+            <li>电影</li>
+            <li>书籍</li>
+        </ul>
+        <div class="select">醉梦前尘</div>
+        <div>陈情令</div>
+        <div>魔道祖师</div>
+    </div>
+</body>
+</html>
+<script>
+    //在JS中想给元素绑定事件，先把对应的元素获取到
+    //选项卡
+    //1.获取所有的li
+    //2.循环所有的li，给每一个li绑定点击事件
+    //3.点击当前li，移除其他li的class,并且通过标签名获取所有的li，并且移除所有div的class
+    //4.点击li，让被点击的li新增class类名是select，并且让与之对应的div新增class
+    var oTab = document.getElementById("tab");
+    var oLis = oTab.getElementsByTagName("li");//类数组集合
+    var divs = oTab.getElementsByTagName("div");
+
+    for(var i=0;i<oLis.length;i++){
+        //在JS中，获取到的每一个元素，都是对象数据类型的
+        //console.log(oLis);
+
+        oLis[i].index = i;//新增键值对
+
+        oLis[i].onclick = function () {
+            //点击li让所有li的class都清除
+            for(var j=0;j<oLis.length;j++){
+                oLis[j].className = '';
+                divs[j].className = '';
+            }
+            //点击的li新增class
+            //当点击li时，触发这个点击的时间函数；此时，外层的for循环早已经循环完成；i已经变成了3；
+            //this --> 这个；关键字，在函数体中有特殊的意义；
+            //this 代表了被绑定的那个li；
+            this.className = 'select';
+            divs[this.index].className = 'select';
+        }
+    }
+
+</script>

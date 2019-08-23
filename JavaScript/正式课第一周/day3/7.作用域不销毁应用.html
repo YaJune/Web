@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            background: whitesmoke;
+        }
+        #tab{
+            width: 400px;
+            height: 280px;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            width: 76px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid black;
+            margin-right: 2px;
+            cursor: pointer;
+            background: white;
+            border-radius: 4px;
+        }
+        ul li.select{
+            background: cornflowerblue;
+            color: white;
+        }
+        #tab div{
+            display: none;
+            width: 400px;
+            height: 280px;
+            /*border-top: 1px solid black;*/
+            margin-top: 5px;
+            text-align: center;
+            line-height: 280px;
+            border-radius: 4px 4px 10px 10px;
+        }
+        #tab div.select{
+            display: block;
+            color: black;
+            background: white;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">音乐</li>
+        <li>电影</li>
+        <li>书籍</li>
+        <li>游戏</li>
+        <li>美食</li>
+    </ul>
+    <div class="select">醉梦前尘</div>
+    <div>陈情令</div>
+    <div>魔道祖师</div>
+    <div>王者荣耀</div>
+    <div>莲藕排骨粥</div>
+</div>
+</body>
+</html>
+<script>
+    var tab = document.getElementById("tab");
+    var oLis = tab.getElementsByTagName("li");
+    var divs = tab.getElementsByTagName("div");
+    for(var i=0;i<oLis.length;i++){
+
+        oLis[i].onclick = (function (i) {
+            return function () {
+                for (var j = 0; j < oLis.length; j++) {
+                    oLis[j].className = "";
+                    divs[j].className = "";
+                }
+                oLis[i].className = "select";
+                divs[i].className = "select";
+            }
+        })(i)
+    }
+
+    /*(function (i) {
+            // 如果在这个作用域给某个元素事件行为绑定了方法，那么该作用域也不会销毁；
+            oLis[i].onclick = function () {
+                for(var j=0;j<oLis.length;j++){
+                    oLis[j].className="";
+                    divs[j].className="";
+                }
+                oLis[i].className="select";
+                divs[i].className="select";
+            }
+        })(i);*/
+    // 形成了三个不销毁的作用域；
+    //}
+
+/*
+    for(let i=0;i<oLis.length;i++){
+        // let 会让for循环没循环一次，都会形成一个子作用域，这个子作用域存储了每一次循环i对应的值；
+        oLis[i].onclick = function () {
+            // 清空所有的li和div身上的class;
+            for(var j=0;j<oLis.length;j++){
+                oLis[j].className="";
+                divs[j].className="";
+            }
+            // this--> 点击的li;
+            this.className="select";
+            divs[i].className="select";
+        }
+    }
+*/
+
+</script>

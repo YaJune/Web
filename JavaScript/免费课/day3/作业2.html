@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="year" type="text" width="50px">
+<br>
+<input id="s1" type="button" value="润平年">
+<input id="r1" type="text" width="50px">
+<br>
+<input id="s2" type="button" value="奇偶数">
+<input id="r2" type="text" width="50px">
+<br>
+<input id="s3" type="button" value="正负数">
+<input id="r3" type="text" width="50px">
+<br>
+<input id="s4" type="button" value="求和数">
+<input id="r4" type="text" width="50px">
+</body>
+</html>
+<script>
+
+    var s1 = document.getElementById("s1");
+    s1.onclick = function () {
+        var year = document.getElementById("year").value;
+        var r1 = document.getElementById("r1");
+
+        if((year%4==0&&year%100!=0)||year%400==0){
+            r1.value = "闰年";
+        }else{
+            r1.value = "平年";
+        }
+    };
+
+    var s2 = document.getElementById("s2");
+    s2.onclick = function () {
+        var year = document.getElementById("year").value;
+        var r2 = document.getElementById("r2");
+
+            if(!(year%2)){
+                r2.value = "偶数";
+            }else{
+                r2.value = "奇数";
+            }
+        };
+
+    var s3= document.getElementById("s3");
+    s3.onclick = function () {
+        var year = document.getElementById("year").value;
+        var r3 = document.getElementById("r3");
+
+        if(year>0){
+            r3.value = "正数";
+        }else if(year<0){
+            r3.value = "负数";
+        }else{
+            r3.value = 0;
+    }
+    };
+    var s4 = document.getElementById("s4");
+    s4.onclick = function () {
+        var year = document.getElementById("year").value;
+        var r4 = document.getElementById("r4");
+        var cul = Number(year);
+        r4.value = parseInt(cul/100)+parseInt(cul%100/10)+cul%10;
+
+    };
+</script>

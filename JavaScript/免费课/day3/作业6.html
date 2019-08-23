@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="code" type="text">
+<input id="many" type="text">
+<input id="btn" type="button" value="提交">
+<input id="much" type="text">
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        var code = document.getElementById("code").value;
+        var many = document.getElementById("many").value;
+        var much = document.getElementById("much");
+
+        if (code == "92"){
+            if(many<20){
+                much.value = many*6;
+            }else{
+                much.value = many*5.9;
+            }
+        }else if(code == "97"){
+            if(many<30){
+                much.value = many*7;
+            }else{
+                much.value = many*6.95;
+            }
+        }
+    }
+    var m = 0;
+    switch (m) {
+        case 0:
+
+    }
+</script>

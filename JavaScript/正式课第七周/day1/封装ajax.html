@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    (function jQuery() {
+            jQuery.ajax = function (obj) {
+                let val , str=``;
+                let default_op = {
+                    type : "get",
+                    async : true,
+                    dataType : "json",
+                    cache : true,
+                    success : null,
+                    data : null,
+                };
+
+                /*!obj.type  ? obj.type  = "get":null;
+                !obj.async ? obj.async = true:null;
+                !obj.dataType ? obj.dataType = "json" : null;*/
+                obj.cache === undefined ? obj.dataType === "script"?obj.cache = false :obj.cache = true : null;
+
+                for(let key in obj){
+                    default_op[key] = obj[key];
+                }
+
+                if(default_op.data && default_op.type === "get" ){
+                    for(let key in default_op.data){
+                        let s = `&${key}=${default_op.data[key]}`;
+                        str += s;
+                    }
+                }
+                default_op.cache === false ? str += `&ijt=${new Date()}`:null;
+                str = str.replace("&","?");
+                default_op.url += str;
+
+                let  xhr = new XMLHttpRequest();
+                xhr.open(default_op.type,default_op.url,default_op.async);
+                xhr.onreadystatechange=function () {
+                    if(xhr.readyState===4&&/^2\d{2}/.test(xhr.status)){
+                        default_op.dataType === "json" ? val = JSON.parse(xhr.responseText) : val = xhr.responseText;
+                        typeof default_op.success === "function"? default_op.success(val):null;
+                    }
+                };
+                default_op.type === "get" ? default_op.data=null : null;
+                xhr.send(default_op.data);
+            };
+        window.$ = jQuery;
+    })();
+
+    $.ajax({
+        url :"https://www.easy-mock.com/mock/5d5b5eb4c6f8054ec051ad46/example/test",
+        type:"get",
+        cache: true,
+        async:false,
+        data:{username:"aabb",password:"1123"},
+        dataType:"json",
+        success :function (data) {
+            console.log(data.data);
+        }
+    })
+</script>

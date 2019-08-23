@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:300px;
+            height:300px;
+            margin:50px auto;
+            background: lightseagreen;
+            position: relative;
+            overflow: hidden;
+        }
+        .mark{
+            width:50px;
+            height:50px;
+            position: absolute;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="../utils/utils.js"></script>
+<script>
+    let mark= document.createElement("div");
+    mark.className = "mark";
+   let oBox = document.getElementById("box");
+   oBox.onmouseover = function (ev) {
+       startX = ev.clientX-oBox.offsetLeft+5;
+       startY = ev.clientY-oBox.offsetTop+5;
+       utils.css(mark,{left:startX,top:startY});
+       oBox.appendChild(mark);
+       oBox.onmousemove = function (ev) {
+           moveX = ev.clientX-oBox.offsetLeft+5;
+           moveY = ev.clientY-oBox.offsetTop+5;
+           utils.css(mark,{left:moveX,top:moveY});
+       };
+   };
+   oBox.onmouseout = function () {
+       oBox.removeChild(mark);
+   }
+</script>
+</body>
+</html>

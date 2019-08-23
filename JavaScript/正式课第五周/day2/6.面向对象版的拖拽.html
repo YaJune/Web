@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 50px;
+            height: 50px;
+            background: aquamarine;
+            position: absolute;
+             left: 50%;
+             top: 50%;
+             margin-left: -25px;
+             margin-top: -25px;
+        }
+        #box1{
+            width: 50px;
+            height: 50px;
+            background: #007aff;
+            position: absolute;
+            left: 25%;
+            top: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div id="box1"></div>
+</body>
+</html>
+<script>
+    let box = document.getElementById("box");
+    let box1 = document.getElementById("box1");
+    //let Move = new Drag();
+    //Move.move(box);
+    //Move.move(box1);
+
+  /*  function Drag(ele) {
+        this.move = function (ele){
+            ele.onmousedown=function (e) {
+                this.x = e.clientX;
+                this.y = e.clientY;
+                this.l = parseFloat(getComputedStyle(ele).left);//""
+                this.t = parseFloat(getComputedStyle(ele).top);
+                console.log(this.x, this.y, this.l, this.t);
+                if(this.setCapture){
+                    this.setCapture();
+                    ele.onmousemove=move;
+                    ele.onmouseup=up;
+                }else{
+                    let that = this;
+                    document.onmousemove= function(e){
+                        move.call(that,e);
+                    };
+                    document.onmouseup=function (e) {
+                        up.call(that,e);
+                    };
+                }
+            }
+            function move(e) {
+                let maxL = document.documentElement.clientWidth-ele.offsetWidth;
+                let maxT = document.documentElement.clientHeight-ele.offsetHeight;
+                let changeX = e.clientX-this.x+this.l;
+                let changeY = e.clientY-this.y+this.t;
+                if(changeX>maxL){
+                    changeX=maxL;
+                }
+                if(changeX<0){
+                    changeX=0;
+                }
+                if(changeY>maxT){
+                    changeY = maxT;
+                }
+                if(changeY<0){
+                    changeY=0;
+                }
+                // 需要盒子的初始位置；点击时盒子的位置；
+                ele.style.left=changeX+"px";
+                ele.style.top=changeY+"px";
+            }
+            function up() {
+                if(this.releaseCapture){
+                    this.releaseCapture();
+                    this.onmousemove=null;
+                    this.onmouseup=null;
+                }else{
+                    document.onmousemove=null;
+                    document.onmouseup =null;
+                }
+            }
+        }
+
+
+    }*/
+    function Drag(ele) {
+        this.ele = ele;
+        this.ele.onmousedown = this.down.bind(this);
+    }
+    Drag.prototype.down = function (e) {
+        this.x = e.clientX;
+        this.y = e.clientY;
+        this.l = parseFloat(getComputedStyle(this.ele).left);//""
+        this.t = parseFloat(getComputedStyle(this.ele).top);
+        console.log(this.x, this.y, this.l, this.t);
+        document.onmousemove = this.move.bind(this);
+        document.onmouseup = this.up;
+    };
+    Drag.prototype.move = function(e) {
+        let maxL = document.documentElement.clientWidth-this.ele.offsetWidth;
+        let maxT = document.documentElement.clientHeight-this.ele.offsetHeight;
+        let changeX = e.clientX-this.x+this.l;
+        let changeY = e.clientY-this.y+this.t;
+        if(changeX>maxL){
+            changeX=maxL;
+        }
+        if(changeX<0){
+            changeX=0;
+        }
+        if(changeY>maxT){
+            changeY = maxT;
+        }
+        if(changeY<0){
+            changeY=0;
+        }
+        this.ele.style.left=changeX+"px";
+        this.ele.style.top=changeY+"px";
+    };
+    Drag.prototype.up = function () {
+        document.onmousemove=null;
+        document.onmouseup =null;
+
+    };
+    new Drag(box);
+    new Drag(box1);
+
+</script>

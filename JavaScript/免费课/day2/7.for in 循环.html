@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //for
+    var obj = {a:10,b:20,c:30};
+    //for in 循环一般用于循环对象
+    for (var key in obj){
+        //对象中有多少个键值对，就循环多少次
+        //key ： 是对象中的属性名，并且是字符串形式
+        console.log(key);
+        //获取属性名的属性值
+        console.log(obj[key]);
+        //在for in 循环中，只能通过对象名["属性名"]这样的方式获取属性值
+
+        //如果属性名是数字，那么会按照数字从小到大依次输出，并且先输出数字
+    }
+    console.log("***");
+    var ary = [3,4,78,88,164,1568];
+    for(var key in ary){
+        console.log(key);       //索引
+        console.log(ary[key]);  //值
+    }
+</script>

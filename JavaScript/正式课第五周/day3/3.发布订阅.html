@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let obj = {};
+    function fn1() {
+        console.log(this);
+        console.log("drunk milk");
+    }
+    function fn2() {
+        console.log("eat meat");
+    }
+    function on(obj,type,fn) {
+
+        if(!obj[type]){
+            obj[type] = [];
+        }
+        let ary = obj[type];
+        for (let i=0;i<ary.length;i++){
+            if(ary[i] === fn){
+                return;
+            }
+        }
+        ary.push(fn);
+    }
+    function emit(obj,type) {
+        let a = obj[type];
+        if(a){
+            for(let i=0;i<a.length;i++){
+                if (typeof a[i] === "function"){
+                    a[i]();
+                    a[i].call(obj);
+                }
+            }
+        }
+    }
+    function off (obj,type,fn){
+        let ary = obj[type];
+        for (let i=0;i<ary.length;i++){
+            if(fn === ary[i]){
+                //ary.splice(i,1);
+               /* ary[i] = ary[ary.length-1];
+                ary.length--;*/
+               ary[i] = null;
+               return;
+            }
+        }
+    }
+    on(obj,"breakfast",fn1);
+    on(obj,"breakfast",fn2);
+    on(obj,"lunch",fn1);
+    setTimeout(function () {
+        emit(obj,"breakfast");
+    },2000);
+
+</script>

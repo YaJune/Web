@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function sum(num){
+        if(num===0){
+            return 0;
+        }
+        if(num%3===0&&num%5===0){
+            return num+sum(num-1)
+        }else {
+            return sum(num-1)
+        }
+    }
+    sum(100);
+</script>

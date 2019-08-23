@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button></button>
+<div></div>
+<div></div>
+<div></div>
+<button></button>
+<button id="btnTarget"></button>
+<button></button>
+<button></button>
+<div></div>
+<div id="divTarget"></div>
+<div></div>
+</body>
+</html>
+<script>
+    var btnTarget = document.getElementById("btnTarget");
+    var divTarget = document.getElementById("divTarget");
+
+    indexSelect(btnTarget);
+    indexSelect(divTarget);
+
+    function indexSelect(ele) {
+        var ary = document.body.childNodes;
+        var tarAry = [];
+        var index = null;
+        for(var i=0;i<ary.length;i++){
+            if(ary[i].nodeType===1&&ary[i].nodeName===ele.nodeName){
+                tarAry.push(ary[i]);
+            }
+        }
+        for(var j=0;j<tarAry.length;j++){
+            if(tarAry[j].getAttribute("id")===ele.getAttribute("id")){
+                index = j;
+            }
+        }
+        console.log(index);
+        return index;
+    }
+</script>

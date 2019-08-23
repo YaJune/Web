@@ -1,0 +1,105 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+    background: #F4F4F4;
+}
+#content{
+    width: 1200px;
+    margin: 30px auto;
+}
+#content .header {
+    background: white;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    font-size: 20px;
+    width: 97%;
+    float: left;
+}
+#content .header .nav{
+    display: inline-block;
+    width: 280px;
+}
+#content .header .select{
+    display: inline-block;
+    background: white;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+#content .header .select .btn{
+    height: 25px;
+    width: 50px;
+    line-height: 25px;
+}
+#content .header .select #tag{
+    height: 25px;
+    line-height: 25px;
+    width: auto;
+}
+#content .header .select #context{
+    height: 21px;
+    line-height: 21px;
+    width: 125px;
+}
+#content .header a{
+    margin-right: 18px;
+    position: relative;
+}
+#content .header a:hover{
+    color: red;
+}
+#content .header a i{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+}
+#content .header a i.up{
+    top: 4px;
+    border-bottom: 4px solid #666;
+}
+#content .header a i.down{
+    top: 17px;
+    border-top: 4px solid #666;
+ }
+#content .header a i.up.checked{
+    top: 4px;
+    border-bottom: 4px solid red;
+}
+#content .header a i.down.checked{
+    top: 17px;
+    border-top: 4px solid red;
+ }
+#content .main {
+    padding-top: 20px;
+    overflow: hidden;
+    clear: both;
+}
+#list{
+    list-style: none;
+    overflow: hidden;
+    clear: both;
+}
+#list li{
+    width: 205px;
+    height: 305px;
+    float: left;
+    background: white;
+    margin: 0 15px 15px 0;
+    padding: 10px;
+}
+#list li img{
+    width: 100%;
+}
+#list li span{
+    display: block;
+    height: 20px;
+    font-size: 15px;
+    color: #666;
+}
+
+
+

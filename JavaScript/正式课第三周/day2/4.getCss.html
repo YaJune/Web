@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box" style="width: 100px; height: 100px; background: red;"></div>
+</body>
+</html>
+<script>
+    var oBox = document.getElementById("box");
+
+    //1.元素.style.width
+    //这种方法只能获取行内设置的CSS样式，不能获取在CSS中设置的样式;
+    //但是可以设置;行内的权重高于CSS的样式
+    console.log(oBox.style.width);
+
+    //2.getComputedStyle : 获取浏览器计算的CSS样式
+    //在IE8以下，getcomputedStyle这个方法在window中不存在
+    console.log(getComputedStyle(oBox).width);
+    //console.log(getComputedStyle(oBox));
+
+    //3.currentStyle
+    //仅适用于IE浏览器(针对IE8及以下)
+    //oBox.currentStyle.width;
+
+    function getCss(curEle,attr) {
+        var val;
+        if("getComputedStyle" in window){
+            val =  getComputedStyle(curEle)[attr];
+        }else{
+            val =  curEle.currentStyle[attr];
+        }
+        var reg = /^(width|height|left|right|top|bottom|magin|padding|fontSize)$/;
+        if(reg.test(attr)){
+            val=parseFloat(val)
+        }
+        return val;
+    }
+
+    console.log(getCss(oBox, "width"));
+
+</script>

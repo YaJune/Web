@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function offset(curEle){
+        var left = curEle.offsetLeft;
+        var top = curEle.offsetTop
+        var parentEle = curEle.offsetParent;
+
+        while(parentEle != document.body){
+            left += parentEle.offsetLeft+parentEle.clientLeft;
+            top += parentEle.offsetTop+parentEle.clientTop;
+            parentEle = parentEle.offsetParent;
+        }
+        return {left,top};
+    }
+
+    function win(attr,val) {
+        if (val===undefined){
+            return document.documentElement[attr]||document.body[attr];
+        }
+        document.documentElement[attr] = val;
+        document.body[attr] = val;
+    }
+
+    function css(curEle,attr,val) {
+        var reg =/^(width|height|left|top|bottom|right|margin|padding|fontSize)$/;
+        if(val===undefined){
+            var rtn;
+            if("getComputedStyle" in window){
+                rtn = getComputedStyle(curEle)[attr];
+            }else{
+                rtn = curEle.currentStyle[atrr];
+            }
+            if(reg.test(attr)){
+                rtn = parseFloat(rtn);
+            }
+            return rtn;
+        }else{
+            if(reg.test(attr)){
+                if(typeof val==="number"){
+                    val =val+"px";
+                }
+            }
+            if(typeof val === "object"){
+                for(var key in val){
+                    curEle.style[key] = val[key];
+                }
+            }else{
+                curEle.style[attr] = val;
+            }
+        }
+    }
+
+</script>

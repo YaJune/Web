@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>
+        <span></span>
+    </li>
+    <li>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span id="pan_4"></span>
+    </li>
+</ul>
+</body>
+</html>
+<script>
+    //检测str在str1中出现的索引位置，
+    var str = "345";
+    var str1 = "20313345674345";
+    function indexof(tar,str) {
+        for(var i=0;i<=str.length-tar.length;i++){
+                var index = i;
+                for(var j=0;j<tar.length;j++){
+                    if(str[i]===tar[j]){
+                        i++;
+                        if(j===tar.length-1){
+                            return index;
+                        }
+                    }else{
+                        i = index;break;
+                    }
+                }
+        }
+        return -1;
+    }
+    var indedx = indexof(str, str1);
+    console.log(indedx);
+
+/*
+    //teacher
+    var str = "434";
+    var str1 = "231334567434";
+    function index(a,b) {
+        for(var i=0;i<b.length-a.length+1;i++){
+            var c = ""
+            for(var j=i;j<a.length+i;j++){
+                c += b[j]
+            }
+            if(a===c){
+                return i;
+            }
+        }
+        return -1;
+    }
+*/
+
+
+
+
+    //传入id=”span_4”的元素；生成路径是body>ul[0]>li[1]>span[3]
+    var aim = document.getElementById("pan_4");
+    function locat(aim) {
+        var parent = aim.parentElement;
+        var bro = parent.children;
+        if(parent.tagName=='HTML'){
+            return "body";
+        }
+        for(var i=0;i<bro.length;i++){
+            if(bro[i]==aim){
+                return locat(parent)+">"+aim.tagName.toLowerCase()+"["+i+"]";
+            }
+        }
+    }
+    console.log(locat(aim));
+
+/*
+    //teacher
+    var span = document.getElementById("pan_4");
+    function getIndex(curEle) {
+        if(curEle==document.body){
+            return "body";
+        }
+        var ary = [].slice.call(curEle.parentNode.children);
+        var name = curEle.nodeName.toLowerCase();
+        var index = ary.indexOf(curEle);
+        return getIndex(curEle.parentNode)+">"+name+"["+index+"]"
+    }
+    console.log(getIndex(span));
+*/
+
+
+
+
+    //将有序的数组变为乱序（随机顺序）[也可以sort排序*1|-1]
+    var ary = [1,2,3,4,5,6,7,8,9];
+    function ranAry(ary) {
+        var newAry = [];
+        for(var i=0;i<ary.length;i++){
+            var index = Math.round(Math.random()*(ary.length-1));
+            if(!newAry[index]){
+                newAry[index] = ary[i];
+            }else{
+                i--;
+            }
+        }
+        return newAry;
+    }
+    console.log(ranAry(ary));
+
+    //获取对象中所有的属性名，放到对象中
+    var  obj = {
+        a:[{b:1,c:{d:2}}],
+        e:{f:1,h:[{i:1}]},
+        x:{y:2}
+    };
+    var a = {};
+    function selet(obj) {
+        for (key in obj){
+            if(toString.call(obj)=="[object Object]"){
+                a[key] = key;
+            }
+            selet(obj[key]);
+        }
+        return a;
+    }
+    console.log(selet(obj));
+
+
+</script>

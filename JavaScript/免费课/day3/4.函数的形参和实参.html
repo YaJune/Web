@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数封装 ：可以接受不同的值，来处理不同的值
+    function sum(m=19,n=2) {//函数定义处小括号的参数叫形参
+        //m，n是函数的形参
+        //undefined 和任何熟悉运算都是NaN；
+        //形参可以赋默认值，如果有实参，那么实参会把默认值给覆盖掉；
+        console.log(m+n);
+    }
+    sum(1,2);
+    sum(100,200);
+    //函数执行的小括号中传递的是实参
+</script>

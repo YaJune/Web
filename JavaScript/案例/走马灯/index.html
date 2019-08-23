@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #nav{
+            position: relative;
+            width: 1000px;
+            height: 160px;
+            background: #F4F4F4;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        #list{
+            user-select: none;
+            position: absolute;
+            left: 10px;
+            width: 2800px;
+            height: 100px;
+            list-style: none;
+        }
+        #list li{
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+        }
+        #list li:nth-child(3n){
+            background: cornflowerblue;
+        }
+        #list li:nth-child(3n+1){
+            background: crimson;
+        }
+        #list li:nth-child(3n+2){
+            background: gold;
+        }
+        #bg{
+            width: 990px;
+            height: 10px;
+            position: absolute;
+            top: 140px;
+            background: white;
+            margin: 0 5px;
+            display: none;
+        }
+        #scroll{
+            height: 10px;
+            width: 25px;
+            border-radius: 20px;
+            background: #ccc;
+            position: relative;
+            left: 10px;
+            /*top: 140px;*/
+            /*margin-bottom: 10px;*/
+        }
+
+    </style>
+</head>
+<body>
+<div id="nav">
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+
+    </ul>
+    <div id="bg"><div id="scroll"></div></div>
+
+</div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script src="index.js"></script>

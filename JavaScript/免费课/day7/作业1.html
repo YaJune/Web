@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #inpt{
+            margin:10px 10px;
+        }
+        #list{
+            list-style: none;
+            width:600px;
+            margin:50px auto;
+            float: left;
+            /*border: 1px solid black;*/
+        }
+        #list li{
+            text-align: left;
+            width: 600px;
+            height:50px;
+            padding-left: 20px;
+            line-height: 50px;
+            font-size: 18px;
+            display: flex;
+        }
+        #list li.bg{
+            background: whitesmoke;
+        }
+        #list li.bg1{
+            background: white;
+        }
+        #list li.bg2{
+            background: cornflowerblue;
+        }
+        .context{
+            width: auto;
+            height:50px;
+            flex: auto;
+            line-height: 50px;
+        }
+        .remove{
+            width: 50px;
+            height:30px;
+            margin:auto 10px;
+            flex: initial;
+            line-height: 30px;
+        }
+    </style>
+
+</head>
+<body>
+<input id="inpt" type="text">
+<div>
+    <ul id="list">
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var inpt = document.getElementById("inpt");
+    var list = document.getElementById("list");
+    //失去焦点新增
+    inpt.onblur = function () {
+        var con = inpt.value;
+        var li = document.createElement("li");
+        li.innerHTML = "<p class='context'>"+con+"</p>";
+        var btn = document.createElement("button");
+        btn.innerHTML = "移除";
+        btn.setAttribute("class","remove");
+        list.appendChild(li);
+        li.appendChild(btn);
+        inpt.value = null;
+
+        btn.onclick = function () {
+            list.removeChild(this.parentNode);
+            change();
+        };
+
+        //隔行变色
+        var oLis = document.getElementsByTagName("li");
+        function change(){
+            for(var i=0;i<oLis.length;i++){
+                if(i%2===0){
+                    oLis[i].style.background = "whitesmoke";
+                }else{
+                    oLis[i].style.background = "white";
+                }
+                oLis[i].onmouseover = function () {
+                    this.style.background = "cornflowerblue";
+                };
+                oLis[i].oldBg = oLis[i].style.background;
+                oLis[i].onmouseout = function () {
+                    this.style.background = this.oldBg;
+                };
+            }
+        }
+        change();
+
+
+/*      //删除
+        var btn = document.getElementsByClassName("remove");
+        for (var j=0;j<btn.length;j++){
+            btn[j].onclick = function () {
+                list.removeChild(this.parentNode);
+                change();
+            };
+        }
+*/
+    }
+</script>

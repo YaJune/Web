@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //
+    function sum(a,b,c) {
+        //在函数体中，有个 实参集合 : arguments
+        //instanceof : 校验一个实例是否属于某个类；是，则返回true；否，则返回false；
+        //console.log(arguments instanceof Array);
+        //console.log(arguments);
+        console.log(a);
+        var total = 0;
+        a = 100;
+        console.log(a);
+        //函数中形参和实参是一一映射的关系，当改变形参a的值，那么arguments也会随着发生改变
+        for (var i=0;i<arguments.length;i++){
+            //console.log(i);
+
+            console.log(arguments[i]);
+            total+=arguments[i];
+        }
+        console.log(total);
+    }
+    sum(1,2,45,7,87,84,54,5458,78,71,14);
+
+</script>

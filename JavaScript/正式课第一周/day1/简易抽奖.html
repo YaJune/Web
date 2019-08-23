@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            margin: 50px auto;
+            width: 300px;
+            height: 175px;
+            text-align: center;
+            border: 3px solid gainsboro;
+            border-radius: 35px;
+            background: whitesmoke;
+            color: black;
+            line-height: 175px;
+            font-size: 50px;
+        }
+        #btn{
+            margin: 0 auto;
+            width: 50px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+            display: block;
+        }
+        #list{
+            display: block;
+            width: 500px;
+            list-style: none;
+            margin: 20px auto;
+            border: 1px solid gainsboro;
+        }
+       #list li{
+           width: 500px;
+           height: 40px;
+           line-height: 40px;
+           font-size: 20px;
+           text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+<button id="btn">Stop</button>
+<ul id="list"></ul>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var btn = document.getElementById("btn");
+    var list = document.getElementById("list");
+    var oLis = document.getElementsByTagName("li");
+    var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var flag = 1;               //点击事件判断标志
+
+    function codeChange() {     //编码随机变换函数
+        var i = 0;
+        var code = "";
+        while(i<4){
+            var index = Math.round(Math.random()*61);
+            code += str[index];
+            i++;
+        }
+        box.innerHTML = code;
+    }
+    var timer = setInterval(codeChange,100);
+
+    btn.onclick = function () {  //button点击事件
+        if(!flag){              //点击时如果flag==0，触发开始事件，并将标记置反
+            flag=1;
+            btn.innerHTML = "Stop";
+            timer = setInterval(codeChange,100);
+
+        }else{                  //点击时如果flag==1，触发结束事件，并将标记置反
+
+            flag=0;
+            btn.innerHTML = "Start";
+            var li = document.createElement("li");
+            li.innerHTML = box.innerText;       //将生成编码记录
+            list.appendChild(li);
+            oLisChange();               //调用 隔行变色，鼠标滑入滑出效果 函数
+            clearInterval(timer);
+
+        }
+    };
+    function oLisChange() {           //隔行变色，鼠标滑入滑出效果
+        for(var i=0;i<oLis.length;i++){
+            if(i%2){
+                oLis[i].style.background = "white";
+            }else{
+                oLis[i].style.background = "whitesmoke";
+            }
+
+            oLis[i].oldBg = oLis[i].style.background;
+
+            oLis[i].onmouseover = function () {
+                this.style.background = "cornflowerblue";
+            };
+            oLis[i].onmouseout = function () {
+                this.style.background = this.oldBg;
+            };
+        }
+    }
+
+</script>

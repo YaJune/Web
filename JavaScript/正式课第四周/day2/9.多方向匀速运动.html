@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            width:100px;
+            height:100px;
+            left:300px;
+            border-radius: 50%;
+            background: darkseagreen;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="../../utils/utils.js"></script>
+<script>
+    let oBox = document.getElementById("box");
+    let  duration = 3000;
+    function linear(t,b,c,d) {
+        // t : 走过的时间
+        // b: 开始的位置
+        // c : 需要走的距离；
+        // d : 总时间
+        return t/d*c+b;
+    }
+
+    let target = {
+        left : 500,
+        top : 300,
+        width : 200,
+        height : 200,
+        opacity : 0.1
+    };
+
+    oBox.onclick = function () {
+        animate(this,target,3000);
+    };
+    function animate(curEle,target,duration) {
+        //console.log(this);
+        let begin = {};
+        for(let key in target){
+            begin[key] = utils.css(curEle,key);
+        }
+        let change = {};
+        for(let key in target){
+            change[key] = target[key]-begin[key];
+        }
+        let interval = 0;
+        let timer = setInterval(function () {
+            interval += 18;
+            for(let key in change){
+                let cur = linear(interval,begin[key],change[key],duration);
+                if(interval>=duration){
+                    clearInterval(timer);
+                    utils.css(curEle,targrt);
+                    return;
+                }
+                utils.css(curEle,key,cur);
+            }
+        },18)
+    }
+</script>
+</body>
+</html>

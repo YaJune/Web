@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 100px;
+        }
+        .box{
+            width:2rem;
+            height:2rem;
+            background: deeppink;
+            margin:auto;
+            transform: ;
+        }
+        /*@keyframes rotate {
+            0%{
+                transform:  rotate(0deg);
+            }
+            100%{
+                transform:  rotate(360deg);
+            }
+        }*/
+    </style>
+    <script>
+        (function () {
+            function computedFont() {
+                let winW = document.documentElement.clientWidth;
+                document.documentElement.style.fontSize = winW/750*100+"px";
+            }
+            computedFont();
+            window.addEventListener("resize",computedFont)
+        })();
+    </script>
+</head>
+<body>
+<div class="box"></div>
+<script>
+    let box = document.querySelector(".box");
+    // 给box绑定三个触摸事件；
+    box.ontouchstart =function (e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        this.style.transition = "all 0s linear";
+        this.style.transform = 'rotate(0deg)';
+        box.ontouchmove = function (e) {
+            endX =  e.touches[0].clientX;
+            endY =  e.touches[0].clientY;
+            moveX= Math.abs(endX-startX);
+            moveY= Math.abs(endY-startY);
+            if(moveX>30||moveY>30){
+                this.success = true;
+            }
+        }
+    }
+    box.ontouchend = function () {
+        this.style.transition = "all 1s linear";
+        if(this.success){
+            this.style.background = "yellow";
+        }else{
+            this.style.transform = 'rotate(540deg)';
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>

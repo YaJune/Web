@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 480px;
+            height: 640px;
+            margin: 10px auto;
+            background: mediumaquamarine;
+            padding: 10px;
+            position: relative;
+            list-style: none;
+            border-radius: 20px;
+        }
+        ul li{
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            float: left;
+            background: honeydew;
+            cursor: move;
+            border-radius: 20px;
+        }
+        ul li img{
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            pointer-events: none;
+
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/2.png" alt=""></li>
+    <li><img src="img/3.png" alt=""></li>
+    <li><img src="img/4.png" alt=""></li>
+    <li><img src="img/5.png" alt=""></li>
+    <li><img src="img/6.png" alt=""></li>
+    <li><img src="img/7.png" alt=""></li>
+    <li><img src="img/8.png" alt=""></li>
+    <li><img src="img/9.png" alt=""></li>
+    <li><img src="img/10.png" alt=""></li>
+    <li><img src="img/11.png" alt=""></li>
+    <li><img src="img/12.png" alt=""></li>
+</ul>
+</body>
+</html>
+<script src="event.js"></script>
+<script>
+    let oLis = document.getElementsByTagName("li");
+
+    for(let i=oLis.length-1;i>=0;i--){
+        oLis[i].style.left = oLis[i].offsetLeft-5+"px";
+        oLis[i].style.top = oLis[i].offsetTop-5+"px";
+        oLis[i].style.position = "absolute";
+        new Drag(oLis[i]).on("selfdown",changeIndex).on("selfmove",isHit).on("selfup",changePosi);
+    }
+    let zIndex = 0;
+    function changeIndex() {
+        this.ele.style.zIndex = ++zIndex;
+    }
+    function isHit() {
+        let curLi = this.ele;
+        this.hit = [];
+        for(let i=0;i<oLis.length;i++){
+            if(curLi === oLis[i]){continue;}
+            if(curLi.offsetLeft+curLi.offsetWidth<oLis[i].offsetLeft||
+                curLi.offsetTop+curLi.offsetHeight<oLis[i].offsetTop||
+            curLi.offsetTop>oLis[i].offsetTop+oLis[i].offsetHeight||
+            curLi.offsetLeft>oLis[i].offsetLeft+oLis[i].offsetWidth){
+                oLis[i].style.background = "";
+            }else {
+                oLis[i].style.background = "bisque";
+                this.hit.push(oLis[i]);
+                changeSel.call(this).style.background = "crimson";
+            }
+        }
+
+    }
+    function changePosi() {
+        let ary = this.hit;
+        let curLi = this.ele;
+        //let min=999;
+        //let minLi = null;
+        for (let i=0;i<ary.length;i++){
+            let cur = ary[i];
+            cur.distance = Math.pow(cur.offsetLeft-curLi.offsetLeft,2)
+                +Math.pow(cur.offsetTop-curLi.offsetTop,2);
+          /*  if(cur.distance<min){
+                min = cur.distance;
+                minLi = cur;
+            }*/
+            cur.style.background = "";
+        }
+        /*if(!minLi){
+            this.ele.style.left = this.l+"px";
+            this.ele.style.top = this.t+"px";
+            return;
+        }
+        this.ele.style.left = minLi.style.left;
+        this.ele.style.top = minLi.style.top;
+        minLi.style.left =this.l+"px";
+        minLi.style.top =this.t+"px";*/
+        ary.sort(function (a,b) {
+            return a.distance - b.distance;
+        });
+        if(!ary[0]){
+            this.ele.style.left = this.l+"px";
+            this.ele.style.top = this.t+"px";
+            return;
+        }
+        this.ele.style.left = ary[0].style.left;
+        this.ele.style.top = ary[0].style.top;
+        ary[0].style.left =this.l+"px";
+        ary[0].style.top =this.t+"px";
+        this.hit = [];
+    }
+    function changeSel() {
+        let ary = this.hit;
+        let curLi = this.ele;
+        for (let i=0;i<ary.length;i++){
+            let cur = ary[i];
+            cur.distance = Math.pow(cur.offsetLeft-curLi.offsetLeft,2)
+                +Math.pow(cur.offsetTop-curLi.offsetTop,2);
+            cur.style.background = "bisque";
+        }
+        ary.sort(function (a,b) {
+            return a.distance - b.distance;
+        });
+        return ary[0];
+    }
+</script>

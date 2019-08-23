@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    Function.prototype.myBind = function(t,...ary){
+        let that = this;
+        return function () {
+            that.call(t,...ary)
+        }
+    }
+    function fn1(a,b,c) {
+        console.log(this, a, b, c);
+    }
+    let f = fn1.myBind({},1,2,3)();
+
+</script>

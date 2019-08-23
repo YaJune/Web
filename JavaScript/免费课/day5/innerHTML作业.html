@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="text" type="text">
+<span id="btn">true</span>
+</body>
+</html>
+<script>
+    var text = document.getElementById("text");
+    text.onblur = function () {
+        var btn = document.getElementById("btn");
+        if(text.value == ""){
+            btn.innerText = "true";
+        }else {
+            btn.innerText = text.value;
+        }
+
+    }
+</script>

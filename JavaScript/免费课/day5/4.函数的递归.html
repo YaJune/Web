@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //递归
+    //在函数体内部调用函数体自己本身，每执行一次都会重新调用一次函数，这种函数执行现象就是函数的递归；
+    //在递归函数中一般都会有函数终止条件；
+    /*var a = 1;
+    function fn() {
+        a++;
+        if(a>10){
+            return a;
+        }
+        fn();
+    }
+    fn();*/
+
+    //1.求1-100之间，能被3整除的和；
+    ///var total = 0;
+    function sum(num) {
+        if(num===1){
+            //当递归到num=1时，返回0；下面递归停止，不再执行；
+            return 0;
+        }
+        if(num%3===0) {
+            return num+sum(num-1);
+        }else{
+            return sum(num-1);
+        }
+
+    }
+    var s = sum(100);
+    console.log(s);
+</script>

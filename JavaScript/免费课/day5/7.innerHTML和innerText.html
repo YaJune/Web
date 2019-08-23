@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <div>空调</div>
+</div>
+</body>
+</html>
+<script>
+    var  box = document.getElementById("box");
+    //在元素对象中有两个属性名，innerHTML和innerText
+    //innerHTML ：获取当前元素标签中的文本内容
+    //innerText ：获取当前元素标签中的文本内容
+    //获取到的内容都是字符串；
+    console.log(box.innerHTML);
+    console.log(box.innerText);
+    //innerHTML可以识别元素内的标签；innerText不可以识别标签；
+
+    //如果原有元素中有内容，会直接将原来的进行覆盖
+    box.innerHTML = "<a href='http://www.baidu.com'>百度一下</a>";
+
+
+    // 文本框，按钮，true，输入内容(...),...;
+</script>

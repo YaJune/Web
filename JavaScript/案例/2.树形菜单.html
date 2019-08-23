@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /**{
+            margin: 0;
+            padding: 0;
+        }*/
+        .box{
+            width:500px;
+            /*1.角度  颜色*/
+            background: linear-gradient(-45deg,lightseagreen,lightpink,lightblue,lightyellow,lightcoral);
+            background: -webkit-linear-gradient(-45deg,lightseagreen,lightpink,lightblue,lightyellow,lightcoral);
+        }
+        .box span{
+            display: block;
+            height:35px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+
+        .box span.close:before{
+            content: "+";
+            font-size: 20px;
+            font-weight: bold;
+            color:red;
+        }
+        .box span.open:before{
+            content: "-";
+            font-size: 30px;
+            font-weight: bold;
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+<ul class="box" id="box">
+    <li><span>第一级菜单</span>
+        <ul>
+            <li><span>第二级菜单+</span>
+                <ul>
+                    <li><span>第三级菜单1</span>
+                        <ul>
+                            <li><span>第四级菜单a</span></li>
+                            <li><span>第四级菜单b</span></li>
+                        </ul>
+                    </li>
+                    <li><span>第三级菜单</span></li>
+                    <li><span>第三级菜单</span></li>
+                    <li><span>第三级菜单</span></li>
+                </ul>
+            </li>
+            <li><span>第二级菜单+</span>
+                <ul>
+                    <li><span>第三级菜单</span></li>
+                    <li><span>第三级菜单</span></li>
+                    <li><span>第三级菜单</span></li>
+                    <li><span>第三级菜单</span></li>
+                </ul>
+            </li>
+            <li><span>第二级菜单</span></li>
+            <li><span>第二级菜单</span></li>
+        </ul>
+    </li>
+    <li><span>第一级菜单</span></li>
+    <li><span>第一级菜单</span></li>
+    <li><span>第一级菜单</span></li>
+</ul>
+<script src="../utils/utils.js"></script>
+<script>
+
+    let oBox = document.getElementById("box");
+    let oSpans = document.getElementsByTagName("span");
+
+    function addClass(curEle) {
+
+        if(curEle){
+            let next = curEle.nextElementSibling;
+            curEle.className = "";
+            if(next && next.nodeName === "UL"){
+                if(!curEle.flag){
+                    curEle.classList.add("open");
+                    utils.css(next,"display","block");
+                }else{
+                    curEle.classList.add("close");
+                    changeChildren(next);
+                    utils.css(next,"display","none");
+                }
+                curEle.flag = !curEle.flag;
+            }
+        }else {
+            /*for(let i=0; i<oSpans.length; i++){
+                let ele = oSpans[i];
+                if(ele.flag){
+                    ele.classList.add("open");
+                }else{
+                    ele.classList.add("close");
+                }
+            }*/
+            for(let i=0; i<oSpans.length; i++){
+                let ele = oSpans[i];
+                ele.flag = true;
+                ele.classList.add("open");
+            }
+        }
+
+    }
+    oBox.onclick = function (e) {
+        if(e.target.nodeName === "SPAN") {
+            let target = e.target;
+            let next = target.nextElementSibling;
+            if (next && next.nodeName === "UL") {
+                addClass(target);
+            }
+        }
+    };
+    /*for(let i=0; i<oSpans.length; i++){
+        let next = oSpans[i].nextElementSibling;
+        oSpans[i].flag = true;
+        if(next && next.nodeName === "UL"){
+            oSpans[i].onclick = function () {
+                addClass(oSpans[i]);
+            }
+        }
+    }*/
+    addClass();
+    addClass(oSpans[0]);
+    function changeChildren(curEle) {
+        if(!curEle){
+            return;
+        }
+        for(let i=0;i<curEle.children.length;i++){
+            let ele = curEle.children[i];
+            let next = ele.nextElementSibling;
+            if(ele.nodeName === "SPAN" && next){
+                ele.className = "";
+                ele.classList.add("close");
+                ele.flag = false;
+            }
+            if( ele.nodeName === "UL"){
+                utils.css(ele,"display","none");
+            }
+            changeChildren(ele);
+        }
+    }
+</script>
+</body>
+</html>

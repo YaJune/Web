@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            /*background: indigo;*/
+            /*teal*/
+        }
+    </style>
+</head>
+<body>
+<button id="btn">切换背景</button>
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+        var bStyle = document.body.style;
+        var bg = bStyle.background;
+
+        /*if(bg === "black"){
+            bStyle.background = "white";
+        }else if(bg === "white"||bg===""){//第一次点击获取到的body的背景颜色是""；
+            bStyle.background = "black";
+        }*/
+        switch (bg) {
+            case "red":
+                bStyle.background = "orange";break;
+            case "orange":
+                bStyle.background = "yellow";break;
+            case "yellow":
+                bStyle.background = "green";break;
+            case "green":
+                bStyle.background = "blue";break;
+            case "blue":
+                bStyle.background = "indigo";break;
+            case "indigo":
+                bStyle.background = "violet";break;
+            default:
+                bStyle.background = "red";break;
+        }
+    }
+</script>

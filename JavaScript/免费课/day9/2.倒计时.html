@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #time{
+            margin: 200px auto;
+            height: 200px;
+            width: 350px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 45px;
+            border: 5px solid darkgray ;
+            color:  black;
+            background-color: white;
+            border-radius: 50px;
+        }
+        body {
+            background-color: whitesmoke;
+        }
+
+    </style>
+</head>
+<body>
+<div id="time">
+    10:00:00
+</div>
+</body>
+</html>
+<script>
+    var time  = document.getElementById("time");
+    var targetTime = new Date("2019/07/05 20:45:40");
+    /*function countDown() {
+        var hours = targetTime.getHours()- new Date().getHours()-1;
+        var minutes = 60 - new Date().getMinutes()-1;
+        var seconds = 60 - new Date().getSeconds();
+        time.innerHTML = aaddZero(hours)+":"+aaddZero(minutes)+":"+aaddZero(seconds);
+    }*/
+    countDown();
+    var t = setInterval(countDown,1000);
+    function addZero(val) {
+        return val<10?"0"+val:val;
+    }
+    function countDown() {
+        var currentTime = new Date();
+        var difTime = targetTime-currentTime;
+        if (difTime<=0){
+            clearInterval(t);
+            return;
+        }
+        var hours = Math.floor(difTime/(1000*60*60));
+        var minutes = Math.floor((difTime-hours*1000*60*60)/(60*1000));
+        var seconds = Math.floor((difTime-hours*1000*60*60-minutes*1000*60)/1000);
+        time.innerHTML = addZero(hours)+":"+addZero(minutes)+":"+addZero(seconds);
+    }
+
+</script>

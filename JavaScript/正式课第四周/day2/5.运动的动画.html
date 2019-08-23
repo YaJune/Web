@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            height: 100px;
+            width: 100px;
+            background: crimson;
+            border-radius: 50%;
+            margin: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="../../utils/jquery-1.11.3.js"></script>
+<script src="../../utils/utils.js"></script>
+<script>
+    /*let winW = $(window).width()- $("#box").width()-40;
+
+    $("#box").click(function () {
+        if(parseInt($(this).css("left")) > 0){
+            $(this).animate({
+                left:"0"
+            },1000)
+        }else{
+            $(this).animate({
+                left:winW
+            },1000)
+        }
+    })*/
+    let oBox = document.getElementById("box");
+    let winW = utils.win("clientWidth")- oBox.offsetWidth-40;
+    oBox.onclick = function () {
+        if(utils.css(oBox,"left")==0){
+            let timer = setInterval(function () {
+                let curL = utils.css(oBox,"left");
+                curL += 10;
+                if(curL>=winW){
+                    clearInterval(timer);
+                    utils.css(oBox,"left",winW);
+                    return;
+                }
+                utils.css(oBox,"left",curL);
+            },17)
+        }else{
+            let timer = setInterval(function () {
+                let curL = utils.css(oBox,"left");
+                curL -= 10;
+                if(curL<=0){
+                    clearInterval(timer);
+                    utils.css(oBox,"left",0);
+                    return;
+                }
+                utils.css(oBox,"left",curL);
+            },17)
+        }
+
+    }
+</script>

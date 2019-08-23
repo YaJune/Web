@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapp {
+            user-select: none;
+            margin: 50px auto;
+            width: 800px;
+            height: 120px;
+            border: 1px solid green;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul {
+            list-style: none;
+            width: 1800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+
+        ul>li {
+            float: left;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+        ul>li:nth-child(3n){
+            background: lightblue;
+        }
+        ul>li:nth-child(3n+1){
+            background: wheat;
+        }
+        ul>li:nth-child(3n+2){
+            background: gold;
+        }
+        .scroll{
+            background: #eee;
+            height: 4px;
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 800px;
+            border-radius: 5px;
+            visibility: hidden;
+        }
+        .scroll i{
+            width: 50px;
+            height: 8px;
+            border-radius: 5px;
+            background: #d8d8d8;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            cursor: pointer;
+
+        }
+        .bg{
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+<div id='wrapp' class="wrapp">
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+    <div class="scroll"><i></i></div>
+</div>
+<!-- <div id='wrapp2' class="wrapp">
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+    <div class="scroll"><i></i></div>
+</div> -->
+</body>
+<script src="走马灯/utils.js"></script>
+<script src="m.js"></script>
+<script>
+    let wrapp = document.getElementById('wrapp');
+    new Marquee(wrapp,{
+        // speed:3, //速度
+        // timer:10 //定时器时间
+    });
+    // let wrapp2 = document.getElementById('wrapp2');
+    // new Marquee(wrapp2,{
+    //      speed:3, //速度
+    //      timer:10 //定时器时间
+    // });
+</script>
+
+</html>

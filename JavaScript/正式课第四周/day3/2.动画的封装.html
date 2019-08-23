@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 200px;
+            background: #28a5c4;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="../../utils/jquery-1.11.3.js"></script>
+<script src="../../utils/utils.js"></script>
+<script>
+/*    $("#box").click(function () {
+        $("#box").animate({left:500,top:200,opacity:0.5},2000,"linear");
+    })*/
+    let oBox = document.getElementById("box");
+    oBox.onclick = function(){
+        move(oBox,{left:500,top:300,opacity:0.5},2000);
+    };
+
+    function linear(t,b,c,d) {
+        return t/d*c+b;
+    }
+    function move(curEle,target,duration,callback) {
+        let begin = {};
+        let change = {};
+        for(let key in target){
+            begin[key] = utils.css(curEle,key);
+            change[key] = target[key]-begin[key];
+        }
+        let interval = 0;
+        let timer = setInterval(function () {
+            if(typeof duration === "undefined"){
+                duration = 1000;
+            }
+            interval += 17;
+            if(interval>=duration){
+                clearInterval(timer);
+                utils.css(curEle,target);
+                if(typeof callback === "function"){
+                    callback();
+                }
+                return;
+            }
+            for(let key in change){
+                let cur = linear(interval,begin[key],change[key],duration);
+                utils.css(curEle,key,cur);
+            }
+        },17)
+    }
+
+</script>

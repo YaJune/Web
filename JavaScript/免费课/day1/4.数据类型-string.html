@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //字符串 ： 单引号、双引号包起来的内容；
+    var str = "sdaef451ae";
+
+    //1.字符串有长度 ：length ; 当前字符串有多少个字符；
+    console.log(str.length);
+
+    //2.字符串有索引 ： [] ；在字符串中，每一个字符都有一个与之对应的标号，代表当前字符在字符串的第几个位置；标号从0开始，依次类推；(数字没有索引)
+    console.log(str[3]);
+
+    //3.字符串的运算  +   -   *   /
+    // - * / 是 先把字符串转换成数字，然后在运算；
+    //NaN 和 任何数字 运算结果都是 NaN
+    var str = '100';
+    console.log(str - '10');
+    console.log("8" * "14");
+    console.log("24" / "2");
+
+    //+ : 字符串拼接
+    console.log("1" + "23456");
+</script>

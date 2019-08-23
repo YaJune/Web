@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //求出里面所有数字的和
+    //1.arguments循环求和
+    //2.用变量接收计算结果
+    //3.判断选出是数字的实参
+    function sum() {
+     var total = 0;
+     for(var i=0;i<arguments.length;i++){
+         /*var cur = arguments[i];//纯数字求和
+         if(typeof cur === "number"&&!isNaN(cur)){
+             total+=cur;
+         }*/
+
+         var cur = Number(arguments[i]);//可以留下被Number为数字的字符串
+         if(!isNaN(cur)){
+             total+=cur;
+         }
+     }
+     return total;
+    }
+    var s = sum(12,89,"56",null,undefined,[],"3px",35,NaN);
+    console.log(s);
+</script>

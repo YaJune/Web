@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //数组的去重 冒泡排序 快速排序 插入排序
+    var ary = [1,2,3,4,12,5,6,8,1,"a",2,35,5,12,"a"];
+
+    //indexOf
+    //1.创建一个新数组，循环原有数组
+    //2.将原有数组的每一项循环至新数组中，新增前判断新数组中是否已存在
+    var newAry = [];
+    for(var i=0;i<ary.length;i++){
+        var cur = ary[i];
+        if(newAry.indexOf(cur)===-1){
+            newAry.push(cur);
+        }
+    }
+    console.log(newAry);
+
+    //在对象中，属性名不可以重复，后面会将前面的覆盖
+    var obj = {};
+    for(var i=0;i<ary.length;i++){
+        var cur = ary[i];
+        obj[cur] = cur;//不能用obj.cur = cur;->{cur:12},不是{12:12}
+    }
+    console.log(obj);
+    var newAry1 = [];
+    for(var key in obj){
+        newAry1.push(obj[key]);
+    }
+    console.log(newAry1);
+</script>

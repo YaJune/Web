@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [0,1,{},43,"abc",0,41]
+
+    //1.pop : 删除数组最后一项；
+    ary.pop();
+    console.log(ary);
+
+    //2.push : 结尾新增
+    ary.push(100);
+    ary.push("a,b",12);
+    console.log(ary);
+
+    //3.shift : 删除数组第一项
+    ary.shift();
+    console.log(ary);
+
+    //4.unshift : 开头新增
+    ary.unshift(0);
+    ary.unshift(0,100);
+    console.log(ary);
+
+    //5.slice : 截取
+    //var newAry = ary.slice(1,4);
+    //var newAry = ary.slice(1);
+    //var newAry = ary.slice();
+    //var newAry = ary.slice(1,-1);
+    var newAry = ary.slice(5,3);
+    console.log(newAry);
+    console.log(ary);
+
+    //6.
+    console.log(ary);
+    console.log(ary);
+    console.log(ary);
+    console.log(ary);
+</script>

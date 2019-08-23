@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            background: crimson;
+        }
+        #inner{
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            background: yellow;
+        }
+        #center{
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background: #28a5c4;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        <div id="center"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var outer = document.getElementById("outer");
+    var inner = document.getElementById("inner");
+    var center = document.getElementById("center");
+    //父级参照物 : offsetParent
+    //一般情况下，所有元素的父级参照物都是body;body没有父级参照物
+    //如果给元素加上position属性(relative[相对],absolute[绝对],fixed[固定]),会让所有子孙元素的父级参照物指向当前这个元素
+    //父亲节点 : parentNode
+    //偏移量 : offsetLeft offsetTop
+   /* console.log(outer.offsetParent);
+    console.log(inner.offsetParent);
+    console.log(document.body.offsetParent);//null
+*/
+    //offsetLeft: 左偏移量 : 从当前元素的 左外边框 到 父级参照物 的 左内边框 ；
+    /*console.log(outer.offsetLeft);
+    console.log(inner.offsetLeft);*/
+    //offsetTop: 上偏移量 : 从当前元素的 上外边框 到 父级参照物 的 上内边框 ；
+    /*console.log(outer.offsetTop);
+    console.log(inner.offsetTop);*/
+
+    function offset(curEle) {
+        var left = curEle.offsetLeft;
+        var top = curEle.offsetTop;
+        var eleParent = curEle.offsetParent;
+        while(eleParent.nodeName != "BODY"){
+            left += eleParent.clientLeft + eleParent.offsetLeft;
+            top += eleParent.clientTop + eleParent.offsetTop;
+            eleParent = eleParent.offsetParent;
+        }
+        //ES6中，如果对象的属性名和属性值相同，可以省略一个；
+        //return {left:left,top:top};
+        return {left,top};
+    }
+
+    console.log(offset(center));
+</script>

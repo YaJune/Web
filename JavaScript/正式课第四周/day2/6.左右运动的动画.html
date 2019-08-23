@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            height: 100px;
+            width: 100px;
+            background: crimson;
+            border-radius: 50%;
+            margin: 20px 20px;
+        }
+         button{
+             width: 50px;
+             height: 20px;
+             text-align: center;
+             line-height: 20px;
+         }
+        #left{
+            margin: 20px 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<button id="left">←</button>
+<button id="right">→</button>
+</body>
+</html>
+<script src="../../utils/jquery-1.11.3.js"></script>
+<script src="../../utils/utils.js"></script>
+<script>
+/*
+    let winW = $(window).width()- $("#box").width()-40;
+    $("#right").click(right);
+    $("#left").click(left);
+    function right() {
+        $("#box").stop();
+        $("#box").animate({
+            left:winW
+        },2000,"linear",left)
+    }function left() {
+        $("#box").stop();
+        $("#box").animate({
+            left:0
+        },2000,"linear",right)
+    }
+*/
+    let oBox = document.getElementById("box");
+    let winW = utils.win("clientWidth")- oBox.offsetWidth-40;
+    let left = document.getElementById("left");
+    let right = document.getElementById("right");
+    let timer;
+    left.onclick = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            let curL = utils.css(oBox,"left");
+            curL -= 10;
+            if(curL<=0){
+                clearInterval(timer);
+                return;
+            }
+            utils.css(oBox,"left",curL);
+        },17)
+    };
+    right.onclick = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            let curL = utils.css(oBox,"left");
+            curL += 10;
+            if(curL>=winW){
+                clearInterval(timer);
+                return;
+            }
+            utils.css(oBox,"left",curL);
+        },17)
+    };
+</script>

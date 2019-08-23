@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            position: absolute;
+            top:30px;
+            left:180px;
+            background: lightgreen;
+            text-align: center;
+            line-height: 100px;
+            color: red;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+   <div id="box">推箱子</div>
+   <script src="../utils/jquery-1.11.3.js"></script>
+   <script>
+       window.onkeydown = function (e) {
+           let left = parseFloat($("#box").css("left"));
+           let top = parseFloat($("#box").css("top"));
+           switch (e.keyCode) {
+               case 37: $("#box").css("left",left-10);break;
+               case 38: $("#box").css("top",top-10);break;
+               case 39: $("#box").css("left",left+10);break;
+               case 40: $("#box").css("top",top+10);break;
+           }
+       }
+   </script>
+</body>
+</html>

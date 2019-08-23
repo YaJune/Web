@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        input{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <input id="cul1" type="text">
+    <select name="" id="option">
+        <option value="1" selected>+</option>
+        <option value="2">-</option>
+        <option value="3">*</option>
+        <option value="4">/</option>
+    </select>
+    <input id="cul2" type="text">
+    =
+    <input id="rtn" type="text">
+    <input id="submit" type="button" value="提交">
+</body>
+</html>
+<script>
+    var sub = document.getElementById("submit");
+    sub.onclick = function () {
+        var cul1 = document.getElementById("cul1").value;
+        var cul2 = document.getElementById("cul2").value;
+        var op = document.getElementById("option").value;
+        var rtn = document.getElementById("rtn");
+
+        var r = 0;
+        var c1 = parseInt(cul1);
+        var c2 = parseInt(cul2);
+        console.log(c1);
+        console.log(c2);
+
+        if(!isNaN(c1)&&!isNaN(c2)){
+            if(op == 1){
+                r = c1+c2;
+            }else if(op ==2){
+                r = c1-c2;
+            }else if(op == 3){
+                r = c1*c2;
+            }else if(op == 4){
+                r = c1/c2;
+            }
+        }else {
+            r = NaN;
+        }
+        rtn.value = r;
+    }
+</script>

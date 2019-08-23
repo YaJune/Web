@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 100px;
+        }
+        .box{
+            width:2rem;
+            height:2rem;
+            background: red;
+        }
+    </style>
+    <script>
+        // 在解析DOM之前，改变HTML的fontSize值；减少DOM的重绘；
+        function computedFontSize() {
+            console.log(100);
+            let  winW = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize=winW/750*100+"px";
+        }
+        window.addEventListener("resize",computedFontSize);
+        computedFontSize();
+    </script>
+</head>
+<body>
+<div class="box" id="box"></div>
+<script src="fastclick.js"></script>
+</body>
+</html>
+<script>
+    let box = document.getElementById("box");
+    box.ontouchstart = function (e) {
+        console.log(100);
+        console.log(e.touches[0]);
+    }
+    box.ontouchmove = function (e) {
+        console.log(200);
+        console.log(e.touches[0]);
+    }
+    box.ontouchend = function (e) {
+        console.log(300);
+        console.log(e.changedTouches[0]);
+    }
+    box.onclick = function () {
+        console.log(400);
+    }
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .container{
+            width: 840px;
+            margin: auto;
+            background: #CCC;
+            overflow: hidden;
+            padding: 0 0 10px 10px;
+        }
+        .container ul{
+            width: 200px;
+            margin-right: 10px;
+            float: left;
+        }
+        .container ul li{
+            position: relative;
+            width: 200px;
+            margin-top: 10px;
+            background: white;
+        }
+        .container ul li img{
+            width: 100%;
+            height: auto;
+            background: url("images/timg.gif") no-repeat;
+        }
+        .container ul li a{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 60px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            color: white;
+            background: pink;
+            cursor: pointer;
+            display: none;
+        }
+        .container ul li:hover a{
+            display: block;
+        }
+        .container ul li p{
+            height: 20px;
+            line-height: 20px;
+            padding-left: 10px;
+        }
+        #topBack{
+            display: none;
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            background: lightcoral;
+            text-align: center;
+            line-height: 100px;
+            color:white;
+            cursor: pointer;
+            position: fixed;
+            bottom :20px;
+            right:20px;
+        }
+    </style>
+</head>
+<body>
+ <div id="container" class="container">
+     <ul>
+<!--         <li><img alt="">/<a href="">采集<a><p>我的梦与远方</p></li>-->
+     </ul>
+     <ul></ul>
+     <ul></ul>
+     <ul></ul>
+ </div>
+ <div id="topBack">回到顶部 </div>
+ <script src="utils.js"></script>
+ <script src="indexT.js"></script>
+</body>
+</html>

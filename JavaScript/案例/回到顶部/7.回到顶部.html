@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        img{
+            width: 100%;
+        }
+        #topBack{
+            display: none;
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            background: lightcoral;
+            text-align: center;
+            line-height: 100px;
+            color:white;
+            cursor: pointer;
+            position: fixed;
+            bottom :20px;
+            right:20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <div id="topBack">回到顶部 </div>
+
+</body>
+</html>
+<script>
+    var scrHeight = document.documentElement.clientHeight||document.body.clientHeight;
+    var attr = "scrollTop";
+    var tBack = document.getElementById("topBack");
+    //控制topBack是否隐藏
+    window.onscroll = function () {
+        if(win(attr) > scrHeight){
+            tBack.style.display = "block";
+        }else {
+            tBack.style.display = "none";
+        }
+    };
+/*
+    //匀速
+    tBack.onclick = function () {
+        var curT = win(attr);
+        var inval = setInterval(function () {
+            curT -= 10;
+            if(curT <= 0){
+                  clearInterval(inval);
+            }
+            win(attr,curT);
+        },10)
+    };
+*/
+
+    //定时3s,根据距离计算定时器执行时间，即次数
+    tBack.onclick = function () {
+        var num = 3000/win(attr)*10;
+        var inval = setInterval(function () {
+            if(win(attr) < 10){
+                  clearInterval(inval);
+            }
+            win(attr,win(attr)-10);
+      },num);
+    };
+
+/*
+    //定时，根据距离计算每次减少scrollTop的距离
+    tBack.onclick = function () {
+        var num = win(attr)/50;
+        var inval = setInterval(function () {
+            if(win(attr) < 10){
+                clearInterval(inval);
+            }
+            win(attr,win(attr)-num);
+        },50);
+    };
+*/
+
+    function win(attr,val) {
+        if(val===undefined){
+            // 如果这个条件成立，说明只是获取
+            return document.documentElement[attr]||document.body[attr];
+        }
+        document.documentElement[attr]=val;
+        document.body[attr]=val;
+    }
+</script>

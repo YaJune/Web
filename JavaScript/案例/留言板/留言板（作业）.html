@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<title>模拟留言板</title>
+<link href="lyb_style.css" rel="stylesheet" type="text/css" />
+<style>
+.yellow{background:yellow;}
+.grey{background:#f1f1f1;}
+.show{display:block}
+.hide{display:none}
+i{margin-right: 5px;}
+</style>
+
+</head>
+
+<body>
+
+<div id="parent">
+	<h4>留言内容：</h4>
+	<div id="box">
+		<em id="em">这里会显示留言内容……</em>
+		<p class="grey"><i>1.</i><b>我是小白鼠一号...</b><span class="hide"><a href="javascript:;">确定删除</a><strong style="color:red">第1条</strong></span></p>
+		 <p class="grey"><i>2.</i><b>我是小白鼠二号...</b><span class="hide"><a href="javascript:;">确定删除</a><strong style="color:red">第2条</strong></span></p>
+		<p class="grey"><i>3.</i><b>我才不是小白鼠！！！</b><span class="hide"><a href="javascript:;">确定删除</a><strong style="color:red">第2条</strong></span></p>
+	</div>
+	<textarea id="text"></textarea><br />
+	<input id="btn" type="button" value="发表留言" />
+</div>
+<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	let $btn = $("#btn");
+	let $text = $("#text");
+	let $box = $("#box");
+	let data = $box.find("p>b");
+	let list = [];
+	data.each(function (index) {
+		list.push($(this).html())
+	});
+
+	$btn.on("click",submit);
+
+	function submit() {
+		if(!$text.val()){
+			alert("留言内容不能为空");
+			return;
+		}
+		let value = $text.val();
+		list.push(value);
+		$text.val("");
+		bindHTML();
+	}
+
+	function bindHTML() {
+		let str = `<em id="em">这里会显示留言内容……</em>`;
+
+		for(let key in list){
+			str += `<p class="grey"><i>${key/1+1}.</i><b>${list[key]}</b><span class="hide"><a href="javascript:;">确定删除</a><strong style="color:red">第${key/1+1}条</strong></span></p>`;
+		}
+		$box.html(str);
+
+		let $p = $("p");
+		$p.on("mouseover",function () {
+			this.className = "yellow";
+			$(this).find("span")[0].className = "show";
+		});
+		$p.on("mouseout",function () {
+			this.className = "grey";
+			$(this).find("span")[0].className = "hide";
+		});
+
+		let $a = $("a");
+		$a.on("click",function () {
+			let index = $(this).parent().parent().index();
+			list.splice(index-1,1);
+			bindHTML();
+		})
+	}
+	bindHTML();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [2,5,18,59,82,16];
+
+    Array.prototype.rePop= function () {
+        this.length--;
+        return this;
+    };
+    Array.prototype.rePush= function () {
+        for(var i=0;i<arguments.length;i++){
+            this[this.length] = arguments[i];
+        }
+        return this.length
+    };
+    Array.prototype.reShift= function () {
+        var temp = this[0];
+        for(var i=0;i<this.length-1;i++){
+            this[i] = this[i+1];
+        }
+        this.length--;
+        console.log(this);
+        return temp;
+    };
+    Array.prototype.reUnShift= function () {
+        var length = this.length;
+        for(var i=length;i>0;i--){
+            this[length-1+arguments.length] = this[--length];
+        }
+        for(var i=0;i<arguments.length;i++){
+            this[i] = arguments[i];
+        }
+        return this;
+    };
+    Array.prototype.reSlice= function (m,n) {
+        var newAry = [];
+        if(m<0){
+            m = this.length+m;
+            if(m<0){
+                m = 0;
+            }
+        }
+        if(n<0){
+            n = this.length+n;
+        }
+        if(!m&&!n){
+            for(var i=0;i<this.length;i++){
+                newAry[i] = ary[i];
+            }
+            return newAry;
+        }
+        if(!n){
+            n = this.length;
+        }
+        for(var i=m;i<n;i++){
+            newAry[newAry.length] = ary[i];
+        }
+        return newAry;
+
+    };
+    //console.log(ary.rePop());
+    //console.log(ary.rePush(0,2));
+    //console.log(ary.reShift());
+    //console.log(ary.reUnShift(35,49));
+    //console.log(ary.reSlice(6));
+</script>

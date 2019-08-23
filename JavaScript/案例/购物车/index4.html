@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="price.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<ul class="list">
+					<li>
+						<i class="click sub"></i>
+						<em class="number">0</em>
+						<i class="click add"></i>
+						<span>
+							单价：<strong class="unitPrice">12.5元 </strong> 小计：<strong class="price">0元</strong>
+						</span>
+					</li>
+					<li>
+						<i class="click sub"></i>
+						<em class="number">0</em>
+						<i class="click add"></i>
+						<span>
+							单价：<strong class="unitPrice">10.5元 </strong> 小计：<strong class="price">0元</strong>
+						</span>
+					</li>
+					<li>
+						<i class="click sub"></i>
+						<em class="number">0</em>
+						<i class="click add"></i>
+						<span>
+							单价：<strong class="unitPrice">8.5元 </strong> 小计：<strong class="price">0元</strong>
+						</span>
+					</li>
+					<li>
+						<i class="click sub"></i>
+						<em class="number">0</em>
+						<i class="click add"></i>
+						<span>
+							单价：<strong class="unitPrice">8元 </strong> 小计：<strong class="price">0元</strong>
+						</span>
+					</li>
+					<li>
+						<i class="click sub"></i>
+						<em class="number">0</em>
+						<i class="click add"></i>
+						<span>
+							单价：<strong class="unitPrice">14.5元 </strong> 小计：<strong class="price">0元</strong>
+						</span>
+					</li>
+				</ul>
+				<div class="info">
+					<span>商品公合计：<em class="sum">0</em>件</span>
+					<span>共花费了：<em class="total">0</em>元</span>
+					<br />
+					<br />
+					<span>其中最贵的商品单价是：<em class="expensive">0</em>元</span>
+				</div>
+			</div>
+		</div>
+		<script>
+
+		</script>
+	</body>
+
+</html>
+<script>
+	var click = document.getElementsByClassName("click");
+	//var subs = document.getElementsByClassName("sub");//获取减少集合
+	var numbers = document.getElementsByClassName("number");//获取数量集合
+	//var adds = document.getElementsByClassName("add");//获取增加集合
+	var unitPrices = document.getElementsByClassName("unitPrice");//获取单价集合
+	var prices = document.getElementsByClassName("price");//获取价格集合
+	var sum = document.getElementsByClassName("sum")[0];//获取总数量
+	var total = document.getElementsByClassName("total")[0];//获取总价格
+	var expen = document.getElementsByClassName("expensive")[0];//获取最贵元素
+	var amount = 0;//定义总数量标记
+
+    for(var i=0;i<click.length;i++) {
+        click[i].onclick = (function (i) {
+            return function () {
+				var flag = null;
+				switch (this.getAttribute("class").split(" ")[1]) {
+					case "add":flag=1;break;
+					case "sub":flag=0;break;
+				}
+				prices[Math.floor(i/2)].innerText = priceCul(Math.floor(i/2), flag);
+				sum.innerText = amount;
+				total.innerText = totalPrice();
+				expen.innerText = expensive();
+			}
+        })(i);
+    }
+/*
+	for(var i=0;i<adds.length;i++){
+		//为每个增加添加点击事件
+		adds[i].index = i;
+		adds[i].onclick = (function (i) {
+			return function(){
+				//调用价格计算函数
+				prices[i].innerText = priceCul(i,1);
+				sum.innerText = amount;
+				total.innerText = totalPrice();
+				expen.innerText = expensive();
+			}
+		})(i);
+
+		//为每个减少添加点击事件
+		subs[i].index = i;
+		subs[i].onclick = function () {
+			if (numbers[this.index].innerText>0){
+				//调用价格计算函数
+				prices[this.index].innerText = priceCul(this.index,0);
+				sum.innerText = amount;
+				total.innerText = totalPrice();
+				expen.innerText = expensive();
+			}
+		};
+	}
+*/
+	//每个种类价格计算，参数：索引标记，增减减少标记，增加为1，减少为0
+	function priceCul(index,flag) {
+		var price = 0;//定义价格标记，初始为0
+		var number = Number(numbers[index].innerText);
+		var unitPrice = parseFloat(unitPrices[index].innerText);
+
+		//根据标记判断数量增加还是减少
+		if(flag){
+			numbers[index].innerText = number+1;
+			amount++;
+		}else{
+		    if(number>0){
+                numbers[index].innerText = number-1;
+                amount--;
+            }
+		}
+		price= unitPrice*numbers[index].innerText;
+		return price;
+	}
+
+	//总价计算，循环遍历各个种类总价再相加
+	function totalPrice() {
+		var totalPrice = 0;
+		for(var i=0;i<prices.length;i++){
+			totalPrice+=parseFloat(prices[i].innerText);
+		}
+		return totalPrice;
+	}
+	//最贵商品单价计算，循环遍历所有种类购买数量，数量不为0时，对应单价与most相比较，取较大者
+	function expensive() {
+		var most = 0;
+		for(var i=0;i<numbers.length;i++){
+			var number = Number(numbers[i].innerText);
+			var unitPrice = parseFloat(unitPrices[i].innerText);
+			if(number&&unitPrice>=most){
+				most = unitPrice;
+			}
+		}
+		return most;
+	}
+</script>

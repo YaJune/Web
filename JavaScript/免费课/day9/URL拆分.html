@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var  url = "https://www.baidu.com/s?wd=京东&rsv_spt=1&rsv_iqid=0xdd505e6a000043df&issp=1";
+    function queryUrl(url){
+        var obj = {};
+        var index = url.indexOf("?");
+        var nawUrl = url.substring(index+1);
+        var ary = nawUrl.split("&");
+        for(var i=0;i<ary.length;i++){
+            var temp = ary[i].split("=");
+            obj[temp[0]] = temp[1];
+        }
+        console.log(obj);
+    }
+    queryUrl(url);
+    function fn(a){
+        for(var i=0;i<a;i++){
+            if(3<i<7){
+                console.log(i);
+                continue;
+            }
+            if(i>8){
+                return;
+            }
+            console.log(i);
+        }
+    }
+    fn(10);
+
+</script>

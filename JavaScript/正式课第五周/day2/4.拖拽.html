@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background: aquamarine;
+            position: absolute;
+            /* left: 50%;
+             top: 50%;
+             margin-left: -150px;
+             margin-top: -150px; */
+        }
+        #box h3{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #007aff;
+            color: white;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+        <h3 id="title">珠峰培训</h3>
+</div>
+</body>
+
+</html>
+<script>
+    let box = document.getElementById("box");
+    box.style.left = (document.documentElement.clientWidth-box.offsetWidth)/2+"px";
+    box.style.top = (document.documentElement.clientHeight-box.offsetHeight)/2+"px";
+    let title = document.getElementById("title");
+    title.onmousedown = function (e) {
+        this.x = e.clientX;
+        this.y = e.clientY;
+        this.l = parseFloat(box.style.left);
+        this.t = parseFloat(box.style.top);
+
+        document.onmousemove = function (e) {
+            let moveX = e.clientX-title.x+title.l;
+            let moveY = e.clientY-title.y+title.t;
+            let maxL = document.documentElement.clientWidth-box.offsetWidth;
+            let maxT = document.documentElement.clientHeight-box.offsetHeight;
+            let minL = 0;
+            let minT = 0;
+            moveX>maxL?moveX=maxL:moveX;
+            moveY>maxT?moveY=maxT:moveY;
+            moveX<minL?moveX=0:moveX;
+            moveY<minT?moveY=0:moveY;
+            box.style.left = moveX+"px";
+            box.style.top = moveY+"px";
+        };
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+</script>

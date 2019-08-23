@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+
+
+
+    var oBox = document.getElementById("box");
+    function getCss(curEle,attr) {
+        var val;
+        if("getComputedStyle" in window){
+            val=getComputedStyle(curEle)[attr];
+
+        }else{
+            val=curEle.currentStyle[attr];
+        }
+        // 如果传递的属性是width\height....;那么需要去掉单位px;变成数字；
+        var reg =/^(width|height|left|top|bottom|right|margin|padding|fontSize)$/;//
+        if(reg.test(attr)) {
+            val = parseFloat(val);
+        }
+        return val;
+    }
+
+    function setCss(curEle,attr,val) {
+        var reg =/^(width|height|left|top|bottom|right|margin|padding|fontSize)$/;
+        // 通过正则判断是否需要拼接"px";如果需要拼接，并且是number类型，直接拼接"px";
+        if(reg.test(attr)){
+            if(typeof val==="number"){
+                val =val+"px";
+            }
+        }
+        curEle.style[attr]=val;
+    }
+    // setCss(oBox,"width",100);
+    // setCss(oBox,"opacity",0.5);
+    // setCss(oBox,"height",300);
+    function setGroupCss(curEle,obj) {
+        // 遍历传递进来的对象
+        for(var key in obj){
+            setCss(curEle,key,obj[key])
+        }
+    }
+    //setGroupCss(oBox,{width:100,opacity:0.3,height:300})
+
+    function css(curEle,attr,val) {
+        if(val!=undefined){
+            setCss(curEle,attr,val);
+        }else{
+            if(typeof attr === "object"){
+                setGroupCss(curEle,attr);
+            }else if(typeof attr === "string"){
+                return getCss(curEle,attr);
+            }
+        }
+    }
+
+    css(oBox,"background","black");
+    css(oBox,{width:200,opacity:0.3,height:200});
+    console.log(css(oBox, "width"));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 150px;
+            padding: 10px;
+            margin: 30px auto;
+            border: 10px solid silver;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+28900
+</div>
+</body>
+</html>
+<script>
+    //JS的盒子模型 ： 13个属性
+    var obox = document.getElementById("box");
+    //1.client 系列
+    //clientWidth : width+左右两个padding  返回值为数字
+    // clientHeight :
+    console.log(obox.clientWidth);
+    //console.log(obox.style.width);//只能获取行内样式，其他的获取不到
+
+    //获取浏览器可是窗口的宽度和高度
+    var w = document.documentElement.clientWidth||document.body.clientWidth;
+    var h = document.documentElement.clientHeight||document.body.clientHeight;
+
+    //2.clientLeft : 左边框的宽度
+    // clientTop : 上边框的高度
+
+    console.log(obox.clientLeft);
+    console.log(obox.clientTop);
+
+    //3.offset 系列
+    //offsetWidth : 盒子的总宽度（width+padding*2+border*2）
+    // offsetHeight : 盒子的总高度（height+padding*2+border*2）
+    console.log(obox.offsetWidth);
+    console.log(obox.offsetHeight);
+
+    //4.scroll 系列
+    //scrollWidth : 溢出时从padding开始到内容为止，无溢出时为（width+padding）
+    // scrollHeight : 溢出时从padding开始到内容为止，无溢出时为（width+padding）
+    console.log(obox.scrollWidth);
+    console.log(obox.scrollHeight);
+</script>

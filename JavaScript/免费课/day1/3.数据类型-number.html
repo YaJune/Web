@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        num
+    </div>
+</body>
+</html>
+<script>
+    //编程语言都有数据类型；浏览器会根据不同的形式进行不同数据类型的解析
+    var num = 100;
+    //number : 整数、小数、NaN
+    //isNaN : 校验当前的值是否为一个有效数字，是，则返回false；否，则返回true
+    console.log(isNaN(1));           //flase
+    console.log(isNaN(NaN));         //true
+    console.log(isNaN("100"));       //flase   //Ctrl+D复制一行
+    console.log(isNaN("100px"));     //true
+
+    //Number : 将其他数据类型强制转换成数字
+    console.log(Number("100"));     //100
+    console.log(Number("100px"));   //NaN
+
+    //Number（"空字符串"、null、undefined、[空数组]、{空对象}）
+    // =>0 , 0 , NaN ，0 ，NaN
+
+    //parseFloat : 可以把字符串中的数字从左到右提取出来，直到遇到一位非有效数字
+    //parseInt : 大体 == parseFloat(但是不能识别小数点)
+
+    console.log(parseFloat("100px"));   //100
+    console.log(parseFloat(""));        //NaN
+    console.log(parseFloat("px100"));   //NaN
+
+    //toFixed : 保留小数点位数;返回值是字符串；保留小数点位数要看下一位决定是否经行四舍五入
+    var n = 12.678229;
+    console.log(n.toFixed(2));
+
+</script>

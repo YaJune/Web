@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+/*    var ary = [9,8,7,6,5,4,3,2,1];
+    var newAry = [];
+    newAry.push(ary[0]);
+    for(var i=1;i<ary.length;i++){
+        var cur = ary[i];
+        for(var j=newAry.length-1;j>=0;j--){
+            console.log(100);
+            if(cur<newAry[j]){
+                if(j===0){
+                    newAry.unshift(cur);
+                    break;
+                }
+            }else{
+                newAry.splice(j+1,0,cur);
+                break;
+            }
+        }
+    }
+    console.log(newAry);
+*/
+/*错误示范
+    var ary = [1,2,4,3,7,5,7,6,9];
+    var newAry = [];
+    //1  2 3  4  7       5
+    newAry.push(ary[0]);
+    for(var i=1;i<ary.length;i++){
+        var cur = ary[i];
+        for(var j=0;j<ary.length;j++){
+            if(cur<newAry[j]){
+                newAry.unshift(cur);
+                break;
+            }else{
+                if(cur<newAry[j+1]){
+                    newAry.splice(j+1,0,cur);
+                    break;
+                }else if(j===newAry.length-1){
+                    newAry.push(cur);
+                    break;
+                }
+            }
+        }
+    }
+    console.log(newAry);
+*/
+        var ary = [1,2,4,3,7,0,7,6,9];
+        var newAry = [];
+        //1  2 3  4  7       5
+        newAry.push(ary[0]);
+        for(var i=1;i<ary.length;i++){
+            var cur = ary[i];
+            for(var j=0;j<ary.length;j++){
+                if(cur>newAry[j]){
+                    if(j===newAry.length-1){
+                        newAry.push(cur);
+                        break;
+                    }
+                }else{
+                    newAry.splice(j,0,cur);
+                    break;
+                }
+            }
+
+
+        }
+        console.log(newAry);
+</script>

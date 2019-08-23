@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class MyPromise{
+        constructor(excutor){
+            this.state = "pending";
+            this.fulfilledEvent = [];
+            this.rejectedEvent = [];
+            let resolve = (result)=>{
+                if(this.state != "pending")return;
+                this.state = "fulfilled";
+                clearTimeout(this.timer);
+                this.timer = setTimeout(()=>{
+                    this.fulfilledEvent.forEach((item)=>{
+                        if(typeof item === "function")item(result);
+                    })
+                },0)
+            };
+            let reject = (result)=>{
+                if(this.state != "pending")return;
+                this.state = "pending";
+                clearTimeout(this.timer);
+                this.timer = setTimeout(()=>{
+                    this.rejectedEvent.forEach((item)=>{
+                        if(typeof item === "function")item(result);
+                    })
+                },0)
+            };
+            try{
+                excutor(resolve,reject);
+            }catch(e){
+                reject(e);
+            }
+        }
+        then(resolveFn,rejectFn){
+            let p3 = new MyPromise((resolve,reject)=>{
+                this.fulfilledEvent.push((result)=>{
+                    let x = resolveFn(result);//p2
+                    x instanceof MyPromise ? x.then(resolve,reject) : resolve();
+                });
+                this.rejectedEvent.push((result)=>{
+                    let x = rejectFn(result);//p2
+                    x instanceof MyPromise ? x.then(resolve,reject) : resolve();
+                });
+            });
+            return p3;
+        }
+    }
+    let p1 = new MyPromise(function (resolve,reject) {
+        resolve();
+    });
+
+    p1.then(function () {//p1.success
+        console.log(1);
+        let p2 = new MyPromise(function () {
+            resolve();
+        });
+        return p2;
+    }).then(function () {
+        //console.log(p2.fulfilledEvent);
+        console.log(3);
+    })
+
+</script>

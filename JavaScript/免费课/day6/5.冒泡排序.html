@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //var ary = [9,8,7,6,5,4,3,2,1];
+    var ary = [1,2,15,4,5,6,7,8,9];
+    //冒泡排序原理 : 相邻两项进行排序，如果前者比后者大，则两项互换；否则，不交换位置
+    //循环一次之后，将数组的最大值放到了数组的最后面；
+
+    //优化1 ：i<ary.length-1
+    //优化2 ：i<ary.length-1-j
+    //优化3 ：j<ary.length-1
+    //优化4 ：flag标识，当顺序正确时直接break；
+    for(var j=0;j<ary.length-1;j++){
+
+        var flag = true;
+
+        for(var i=0;i<ary.length-1-j;i++){
+
+            console.log(100);
+            if(ary[i]>ary[i+1]){
+                var temp = ary[i];
+                ary[i] = ary[i+1];
+                ary[i+1] = temp;
+                flag = false;
+            }
+        }
+        if(flag){//判断当数组顺序正确时，直接break；
+            break;
+        }
+    }
+    console.log(ary);
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //JS 定时器两种 ：setTimmeout setInterval
+    //setTimeout : 过了一定时间，执行一次
+    //setInerval : 每隔了一段时间，执行一次
+    //函数作为实参传递给 setTimeout 函数
+    //当代码解析到setTimeout那行时，浏览器会立即记录一个时间，再经过1000ms之后，让setTimeout 的函数执行一次
+    //浏览器有最小的识别时间；谷歌浏览器 5-6ms;火狐 8-10ms;IE 14-16ms;
+    setTimeout(function (a) {
+        console.log(a);
+        console.log("打豆豆");
+    },1000,"睡觉");
+
+    var i = 0;
+    var r = setInterval(function () {
+        i++;
+        if(i>=1){
+            clearInterval(r);
+        }//在函数体中清除定时器，但是此次的函数要执行完成；
+        console.log("吃饭");
+    },800);
+    //定时器的返回值 ：定时器的返回值代表当前定时器在页面中是第几个；
+</script>
