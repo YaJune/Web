@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(fruit,index) in fruits">
+        {{index+1}}{{fruit.name}}
+            <ul>
+                <li v-for="(color,index) in fruit.color">{{index+1}}{{color}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="/study/node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            fruits:[
+                        {name:'香蕉',color:['green','yellow']},
+                        {name:'苹果',color:['red','green','yellow']},
+                        {name:'西瓜',color:['pink']}
+                    ]
+        }
+    });
+</script>
+</body>
+</html>
